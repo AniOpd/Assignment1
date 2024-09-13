@@ -10,11 +10,13 @@ const AddProperty = () => {
   const [description, setDescription] = useState('');
   const [pimage, setPimage] = useState(''); 
   const navigate = useNavigate();
+  const baseUrl = import.meta.env.VITE_BASE_URL;
+
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.post('http://localhost:5000/properties', {
+      await axios.post(`${baseUrl}properties`, {
         title,
         price,
         location,

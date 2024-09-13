@@ -6,11 +6,12 @@ const Login = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const navigate = useNavigate();
+  const baseUrl = import.meta.env.VITE_BASE_URL;
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post('http://localhost:5000/login', { username, password });
+      const response = await axios.post(`${baseUrl}login`, { username, password });
       localStorage.setItem('token', response.data.token);
       alert('Login successful!');
       navigate('/properties');

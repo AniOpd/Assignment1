@@ -6,11 +6,12 @@ const SignUp = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const navigate = useNavigate();
+  const baseUrl = import.meta.env.VITE_BASE_URL;
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.post('http://localhost:5000/register', { username, password });
+      await axios.post(`${baseUrl}register`, { username, password });
       alert('User registered successfully!');
       navigate('/login');
     } catch (error) {

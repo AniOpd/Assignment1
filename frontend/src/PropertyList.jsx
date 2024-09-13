@@ -6,10 +6,11 @@ const PropertyList = () => {
   const [properties, setProperties] = useState([]);
   const [searchLocation, setSearchLocation] = useState('');
   const [filteredProperties, setFilteredProperties] = useState([]);
+  const baseUrl = import.meta.env.VITE_BASE_URL;
 
   useEffect(() => {
     const fetchProperties = async () => {
-      const response = await axios.get('http://localhost:5000/properties');
+      const response = await axios.get(`${baseUrl}properties`);
       setProperties(response.data);
       setFilteredProperties(response.data);
       console.log(response.data);
