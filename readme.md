@@ -1,6 +1,4 @@
-Sure, here is a comprehensive README file for your property listing website:
 
----
 
 # Urban Residential Properties
 
