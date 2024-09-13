@@ -5,6 +5,7 @@ const jwt = require('jsonwebtoken');
 const bcrypt = require('bcrypt');
 const dotenv = require('dotenv').config();
 const uri = process.env.MONGO_URI;
+const PORT = process.env.PORT || 5000; 
 
 const app = express();
 app.use(cors());
@@ -78,4 +79,4 @@ app.post('/recommendations', async (req, res) => {
   res.json(recommendedProperties);
 });
 
-app.listen(5000, () => console.log('Server running on port 5000'));
+app.listen(PORT, () => console.log('Server running on port 5000'));
